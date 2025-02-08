@@ -1,0 +1,43 @@
+.videoBlock {
+	display: block;
+	background: radial-gradient(
+		100% 80% at 64% 95%,
+		rgba(108, 119, 134, 0.4) 40%,
+		rgba(83, 104, 104, 0.4) 100%
+	);
+	margin: 20px 0;
+	padding: 8px 20px 12px;
+}
+
+#videoSectionTitle {
+	font-size: 21px;
+}
+
+#videoSection {
+	column-gap: 28px;
+	display: flex;
+	flex-direction: row;
+	overflow-x: scroll;
+}
+
+.communityVideo {
+	display: flex;
+	flex-direction: column;
+	max-width: 320px;
+}
+
+.communityVideo h2 {
+	margin: 0 !important;
+	line-height: 24px;
+}
+
+#channelAndDateContainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+#channelAndDateContainer h2 {
+	color: rgb(175, 185, 194) !important;
+}

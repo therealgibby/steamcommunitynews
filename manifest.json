@@ -1,0 +1,22 @@
+{
+	"manifest_version": 3,
+	"name": "Steam Community News",
+	"description": "Searches for Youtube videos related to a Steam game",
+	"version": "0.1.0",
+	"permissions": ["storage", "tabs"],
+	"host_permissions": ["https://store.steampowered.com/*"],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://store.steampowered.com/*"],
+			"js": ["content.js"],
+			"css": ["content.css"]
+		}
+	],
+	"action": {
+		"default_title": "Steam Community News",
+		"default_popup": "/popup/popup.html"
+	}
+}
