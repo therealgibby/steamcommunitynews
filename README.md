@@ -11,4 +11,4 @@ git clone [Repository URL]
 ```
 
 2. In Google Chrome visit "chrome://extensions/" and make sure Developer Mode is on.
-3. Click "Load unpacked" and select the file containing the cloned project.
+3. Click "Load unpacked" and select the folder containing the cloned project.
