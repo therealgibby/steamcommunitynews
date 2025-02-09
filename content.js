@@ -72,6 +72,7 @@
 			videoThumbnail.width = videoData.thumbnail.width;
 			videoThumbnail.height = videoData.thumbnail.height;
 
+			videoTitle.id = "communityVideoTitle";
 			videoTitle.innerText = videoData.title
 				.replace(/&amp;/g, "&")
 				.replace(/&lt;/g, "<")

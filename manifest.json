@@ -14,9 +14,5 @@
 			"js": ["content.js"],
 			"css": ["content.css"]
 		}
-	],
-	"action": {
-		"default_title": "Steam Community News",
-		"default_popup": "/popup/popup.html"
-	}
+	]
 }
