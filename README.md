@@ -2,6 +2,10 @@
 
 A Google Chrome extension that displays videos related to the video game of the Steam Store page visited.
 
+## Prerequisites
+
+1. Git
+
 ## How to install
 
 1. Clone this project

@@ -20,10 +20,8 @@
 		const videos = { data: [] };
 
 		if (typeof gameTitle === "string") {
-			const reqGameTitle = gameTitle.replaceAll(" ", "+");
-
 			const responseJson = await fetch(
-				`http://localhost:8080/api/ytsearch?gameTitle=${reqGameTitle}`
+				`http://localhost:8080/api/ytsearch?gameTitle=${gameTitle}`
 			)
 				.then((response) => {
 					if (response.ok) return response.json();
@@ -34,7 +32,9 @@
 					return null;
 				});
 
-			videos.data = responseJson.data;
+			if (responseJson && responseJson.data) {
+				videos.data = responseJson.data;
+			}
 		}
 
 		chrome.tabs.sendMessage(tabId, {
