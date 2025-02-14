@@ -33,14 +33,13 @@
 							.catch((jsonError) => {
 								console.error(jsonError);
 							});
-					} else {
-						response
-							.json()
-							.then((json) => Promise.reject(json))
-							.catch((returnedError) =>
-								console.error(returnedError)
-							);
+						return;
 					}
+
+					response
+						.json()
+						.then((json) => Promise.reject(json))
+						.catch((returnedError) => console.error(returnedError));
 				})
 				.catch((callError) => {
 					console.error(callError);
