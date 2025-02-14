@@ -15,31 +15,36 @@
 		}
 	});
 
-	// returns an object containing an array of video attributes or a an empty array
-	async function fetchYoutubeVideos(gameTitle, tabId) {
-		const videos = { data: [] };
-
+	// sends a message to the frontend if videos are found
+	// frontend expects videos.data so send all json
+	function fetchYoutubeVideos(gameTitle, tabId) {
 		if (typeof gameTitle === "string") {
-			const responseJson = await fetch(
-				`http://localhost:8080/api/ytsearch?gameTitle=${gameTitle}`
-			)
+			fetch(`http://localhost:8080/api/ytsearch?gameTitle=${gameTitle}`)
 				.then((response) => {
-					if (response.ok) return response.json();
-					return response.json().then((json) => Promise.reject(json));
+					if (response.ok) {
+						response
+							.json()
+							.then((json) => {
+								chrome.tabs.sendMessage(tabId, {
+									type: "VIDS",
+									videos: json,
+								});
+							})
+							.catch((jsonError) => {
+								console.log(jsonError);
+							});
+					} else {
+						response
+							.json()
+							.then((json) => Promise.reject(json))
+							.catch((returnedError) =>
+								console.log(returnedError)
+							);
+					}
 				})
-				.catch((error) => {
-					console.log(error);
-					return null;
+				.catch((callError) => {
+					console.log(callError);
 				});
-
-			if (responseJson && responseJson.data) {
-				videos.data = responseJson.data;
-			}
 		}
-
-		chrome.tabs.sendMessage(tabId, {
-			type: "VIDS",
-			videos,
-		});
 	}
 })();
