@@ -31,19 +31,19 @@
 								});
 							})
 							.catch((jsonError) => {
-								console.log(jsonError);
+								console.error(jsonError);
 							});
 					} else {
 						response
 							.json()
 							.then((json) => Promise.reject(json))
 							.catch((returnedError) =>
-								console.log(returnedError)
+								console.error(returnedError)
 							);
 					}
 				})
 				.catch((callError) => {
-					console.log(callError);
+					console.error(callError);
 				});
 		}
 	}
